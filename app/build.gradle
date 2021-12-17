@@ -30,6 +30,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
             signingConfig signingConfigs.debug
         }
+        debug{
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+        staging{
+            initWith debug
+            manifestPlaceholders = [hostname:"localhost"]
+            applicationIdSuffix ".debugStaging"
+        }
 
     }
     buildFeatures {
